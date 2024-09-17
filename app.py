@@ -47,7 +47,7 @@ filtered_data = filter_data(data,
                             district=district, 
                             region=region,
                             queue_status=queue_status)
-filtered_data = data[columns] # remove columns
+filtered_data = filtered_data[columns] # remove columns from filter
 
 # Metric section (data can be filtered)
 with st.expander('Métricas gerais', icon=':material/score:', expanded=True):

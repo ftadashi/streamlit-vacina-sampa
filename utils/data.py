@@ -4,20 +4,18 @@ from utils.columns import DATA_HORA, UNSED_COLUMNS, NUMERIC_COLUMNS, BOOLEAN_COL
 
 def convert_data(response_json):
     dataframe = parse_data(response_json)
-    dataframe = cleanup_columns(dataframe)
     dataframe = convert_columns_types(dataframe)
+    dataframe = cleanup_columns(dataframe)
     #debug(dataframe.info())
     return dataframe
 
 def parse_data(response_json):
-    dataframe = pd.DataFrame.from_dict(response_json)
-    return dataframe
+    return pd.DataFrame.from_dict(response_json)
 
 def cleanup_columns(dataframe):
     # remoção de colunas desnecessárias
-    dataframe.drop(UNSED_COLUMNS, axis=1)
-    return dataframe
-
+    return dataframe.drop(UNSED_COLUMNS, axis=1)
+    
 def convert_columns_types(dataframe):
     # conversão de tipos de dados numericos
     for column in NUMERIC_COLUMNS:
