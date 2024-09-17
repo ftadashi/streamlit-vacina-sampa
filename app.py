@@ -6,10 +6,11 @@ from utils.log import info
 from utils.columns import CRS, STATUS_FILA, STATUS_FILA, COUNTS, INDEX, VACCINES_COLUMNS
 
 # Global configurations
+CACHE_TTL = 300
 st.set_page_config(layout= 'wide')
 st.header(':material/vaccines: Vacina Sampa', divider='red')
 
-@st.cache_data(ttl=60, max_entries=500)
+@st.cache_data(ttl=CACHE_TTL, max_entries=500)
 def fetch_data():
     info('Fetch data')
     response_json = api_call()
