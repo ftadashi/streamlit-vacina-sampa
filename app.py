@@ -41,11 +41,12 @@ with st.sidebar.expander('Colunas'):
     columns = st.multiselect('Selecione as colunas', columns_list, columns_list)
 
 # Filtered data
-filtered_data = filter_data(data[columns], 
+filtered_data = filter_data(data, 
                             search=search,
                             district=district, 
                             region=region,
                             queue_status=queue_status)
+filtered_data = data[columns] # remove columns
 
 # Metric section (data can be filtered)
 with st.expander('Métricas gerais', icon=':material/score:', expanded=True):
